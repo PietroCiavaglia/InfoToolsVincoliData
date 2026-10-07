@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/PietroCiavaglia/InfoToolsVincoliData/main/schemas/LATEST_SCHEMA_V1.json",
+  "title": "InfoToolsDesktop — Puntatore ultimo dataset Vincoli Logistici V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "periodo",
+    "statoDataset",
+    "datasetPath",
+    "manifestPath",
+    "reportPath",
+    "datasetSha256",
+    "pubblicatoUtc"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "VINCOLI_LATEST_V1"
+    },
+    "periodo": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+    },
+    "statoDataset": {
+      "type": "string",
+      "enum": ["COMPLETO", "PARZIALE"]
+    },
+    "datasetPath": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])/dataset\\.json$"
+    },
+    "manifestPath": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])/manifest\\.json$"
+    },
+    "reportPath": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])/report\\.md$"
+    },
+    "datasetSha256": {
+      "type": "string",
+      "pattern": "^[A-Fa-f0-9]{64}$"
+    },
+    "pubblicatoUtc": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
